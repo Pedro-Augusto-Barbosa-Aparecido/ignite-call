@@ -43,7 +43,7 @@ export default function UpdateProfile() {
       bio: data.bio,
     });
 
-    await router.push(`schedule/${session.data?.user.username}`);
+    await router.push(`/schedule/${session.data?.user.username}`);
   }
 
   return (
@@ -52,7 +52,7 @@ export default function UpdateProfile() {
         <Heading as="strong">Defina sua disponibilidade!</Heading>
         <Text>Por último, uma breve descrição e uma foto de perfil.</Text>
 
-        <MultiStep size={4} currentStep={1} />
+        <MultiStep size={4} currentStep={4} />
       </Header>
       <ProfileBox as="form" onSubmit={handleSubmit(handleUpdateProfile)}>
         <label>
