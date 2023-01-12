@@ -57,8 +57,6 @@ export default async function handler(
   const startHour = time_start_interval_in_minutes / 60;
   const endHour = time_end_interval_in_minutes / 60;
 
-  console.log(startHour, endHour);
-
   const possibleTimes = Array.from({ length: endHour - startHour }).map(
     (_, i) => {
       return startHour + i;
@@ -79,9 +77,13 @@ export default async function handler(
   });
 
   const availableTimes = possibleTimes.filter((time) => {
-    return !blockedTimes.some(
+    const isTimeBlocked = blockedTimes.some(
       (blockedTime) => blockedTime.date.getHours() === time
     );
+
+    const isTimeInPast = referenceDate.set("hour", time).isBefore(new Date());
+
+    return !isTimeBlocked && !isTimeInPast;
   });
 
   return res.json({ possibleTimes, availableTimes });
