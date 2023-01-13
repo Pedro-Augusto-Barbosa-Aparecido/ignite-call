@@ -24,7 +24,7 @@ import { getWeekDays } from "../../../utils/get-week-days";
 import { convertTimeStringToMinutes } from "../../../utils/convert-time-string-in-minutes";
 import { api } from "../../../lib/axios";
 import { useRouter } from "next/router";
-import { NextSeo } from "next-seo/lib/meta/nextSEO";
+import { NextSeo } from "next-seo";
 
 const timeIntervalsFormSchema = z.object({
   intervals: z

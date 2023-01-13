@@ -4,7 +4,7 @@ import { Container, Hero, Preview } from "./styles";
 import previewImage from "../../assets/app.svg";
 import Image from "next/image";
 import { ClaimUsernameForm } from "./components/ClaimUsernameForm";
-import { NextSeo } from "next-seo/lib/meta/nextSEO";
+import { NextSeo } from "next-seo";
 
 export default function Home() {
   return (
